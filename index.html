@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Robert Bannoura — Portfolio</title>
+    <meta
+      name="description"
+      content="Computer Engineering student building modern software, embedded systems, and ML projects."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:title" content="Robert Bannoura — Portfolio" />
+    <meta
+      property="og:description"
+      content="Computer Engineering student building modern software, embedded systems, and ML projects."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  </head>
+
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <!-- Soft background wash -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 overflow-hidden">
+      <div class="absolute -top-44 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-indigo-200/60 blur-3xl"></div>
+      <div class="absolute -bottom-48 right-[-160px] h-[560px] w-[560px] rounded-full bg-cyan-200/50 blur-3xl"></div>
+      <div class="absolute top-1/3 left-[-220px] h-[520px] w-[520px] rounded-full bg-emerald-200/40 blur-3xl"></div>
+    </div>
+
+    <!-- Top progress bar -->
+    <div id="progress" class="fixed left-0 top-0 z-[60] h-[3px] w-0 bg-slate-900/80"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/70 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+        <a href="#home" class="flex items-center gap-3 font-semibold tracking-tight">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 text-white">R</span>
+          <span>Robert Bannoura</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+          <a class="navlink hover:text-slate-900" href="#projects">Projects</a>
+          <a class="navlink hover:text-slate-900" href="#skills">Skills</a>
+          <a class="navlink hover:text-slate-900" href="#about">About</a>
+          <a class="navlink hover:text-slate-900" href="#contact">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a
+            href="#contact"
+            class="hidden rounded-xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 hover:bg-slate-800 md:inline-flex"
+          >
+            Hire / Contact
+          </a>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menuBtn"
+            class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50 md:hidden"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            Menu
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu panel -->
+      <div id="mobileMenu" class="hidden border-t border-slate-200/70 bg-white/80 backdrop-blur md:hidden">
+        <div class="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 text-sm">
+          <a class="rounded-lg px-3 py-2 hover:bg-slate-50" href="#projects">Projects</a>
+          <a class="rounded-lg px-3 py-2 hover:bg-slate-50" href="#skills">Skills</a>
+          <a class="rounded-lg px-3 py-2 hover:bg-slate-50" href="#about">About</a>
+          <a class="rounded-lg px-3 py-2 hover:bg-slate-50" href="#contact">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <!-- HERO -->
+      <section class="mx-auto max-w-6xl px-4 py-14 md:py-20">
+        <div class="grid gap-10 md:grid-cols-12 md:items-center">
+          <div class="md:col-span-7">
+            <div data-reveal class="reveal">
+              <p class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs text-slate-700">
+                <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                Open to internships / junior roles • Software • Embedded • ML
+              </p>
+
+              <h1 class="mt-5 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+                Building reliable systems —
+                <span class="bg-gradient-to-r from-indigo-600 to-cyan-600 bg-clip-text text-transparent">from code to hardware</span>.
+              </h1>
+
+              <p class="mt-4 max-w-2xl text-base leading-relaxed text-slate-700 md:text-lg">
+                I’m a Computer Engineering student at Birzeit University (expected graduation Feb 2026).
+                I build practical projects across Python/Java, databases, QA practices, and embedded systems.
+              </p>
+
+              <div class="mt-7 flex flex-wrap items-center gap-3">
+                <a
+                  href="#projects"
+                  class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 hover:bg-slate-800"
+                >
+                  See Projects
+                </a>
+
+                <!-- Put your resume PDF inside /public -->
+                <a
+                  href="/Robert_Bannoura_CV.pdf"
+                  class="rounded-xl border border-slate-200 bg-white/70 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white"
+                >
+                  Download Resume
+                </a>
+
+                <a
+                  href="https://github.com/RobertBannoura"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="rounded-xl border border-slate-200 bg-white/70 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white"
+                >
+                  GitHub
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/robert-bannoura/"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="rounded-xl border border-slate-200 bg-white/70 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white"
+                >
+                  LinkedIn
+                </a>
+              </div>
+
+              <div class="mt-8 flex flex-wrap gap-2 text-xs text-slate-600">
+                <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1">Python</span>
+                <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1">PyTorch</span>
+                <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1">Java</span>
+                <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1">MySQL</span>
+                <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1">JavaFX</span>
+                <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1">Flutter</span>
+                <span class="rounded-full border border-slate-200 bg-white/70 px-3 py-1">ESP32</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right “Now” card -->
+          <div class="md:col-span-5">
+            <div data-reveal class="reveal rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-xl shadow-black/5">
+              <h2 class="text-sm font-semibold text-slate-900">Now</h2>
+              <div class="mt-4 grid gap-3 text-sm">
+                <div class="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                  <p class="text-slate-600">Main project</p>
+                  <p class="font-semibold text-slate-900">HeartGuard (ECG digitization + Diagnosis + ML pipeline)</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                  <p class="text-slate-600">Recent builds</p>
+                  <p class="font-semibold text-slate-900">JavaFX store system • Robotics • IoT prototypes</p>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white px-4 py-3">
+                  <p class="text-slate-600">Looking for</p>
+                  <p class="font-semibold text-emerald-700">Internships / junior opportunities</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS PANEL (FIXED WRAPPER) -->
+      <section id="projects" class="panel">
+        <div class="panel-inner">
+          <div class="mx-auto w-full max-w-6xl px-4">
+            <div data-reveal class="reveal">
+              <div class="flex items-end justify-between gap-4">
+                <div>
+                  <h2 class="text-3xl font-bold text-slate-900">Projects</h2>
+                  <p class="mt-2 text-slate-600">
+                    Featured projects. More will be added over time.
+                  </p>
+                </div>
+
+                <a
+                  class="hidden rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50 md:inline-flex"
+                  href="https://github.com/RobertBannoura"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View GitHub →
+                </a>
+              </div>
+
+              <div class="mt-8 grid gap-6 md:grid-cols-2">
+                <!-- Project 1 -->
+                <article class="card" data-reveal style="--d: 0ms">
+                  <div class="thumb">
+                    <!-- Image comes from main.js: setImg("imgHeartGuard", heartguardCover) -->
+                    <img id="imgHeartGuard" alt="HeartGuard preview" loading="lazy" class="thumb-img" />
+                  </div>
+
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 class="text-lg font-semibold text-slate-900">
+                        HeartGuard — ECG Digitization &amp; Classification
+                        <span class="ml-2 inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-2 py-0.5 text-xs font-semibold text-amber-800">
+                          Work in progress
+                        </span>
+                      </h3>
+
+                      <p class="mt-2 text-sm text-slate-600">
+  Converts printed/scanned ECG images into clean digital waveforms, then uses ML to support automatic diagnosis.
+  Pipeline: image → waveform extraction → quality checks → model-ready dataset → classification.
+</p>
+
+
+                    </div>
+
+                    <span class="pill">ML</span>
+                  </div>
+
+                  <ul class="mt-4 space-y-2 text-sm text-slate-700">
+  <li>• Extracts 12-lead waveforms from ECG images using a robust digitization pipeline</li>
+  <li>• Runs quality + consistency checks (missing leads, scale issues, noise, misalignment)</li>
+  <li>• Builds reproducible datasets and training/evaluation experiments for diagnosis models</li>
+</ul>
+
+
+
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <a class="btn pointer-events-none opacity-60" href="#" aria-disabled="true">Code (private)</a>
+
+                    <!-- Put PDF inside /public, example: /public/HeartGuard_Mid_Report.pdf -->
+                    <a class="btn" href="/HeartGuard_Mid_Report.pdf" target="_blank" rel="noreferrer">
+                      Mid Report (PDF)
+                    </a>
+
+                    <!-- TODO later: add slides link -->
+                    <!-- <a class="btn" href="PASTE_SLIDES_LINK_HERE" target="_blank" rel="noreferrer">Slides</a> -->
+                  </div>
+
+                  <p class="mt-4 text-xs text-slate-500">
+                    Note: Public repo will be added once the project is ready for release.
+                  </p>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="card" data-reveal style="--d: 60ms">
+                  <div class="thumb">
+                    <!-- Image comes from main.js: setImg("imgTechStore", techstoreCover) -->
+                    <img id="imgTechStore" alt="Tech Store preview" loading="lazy" class="thumb-img" />
+                  </div>
+
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 class="text-lg font-semibold text-slate-900">Appliance Store Management System</h3>
+                      <p class="mt-2 text-sm text-slate-600">
+                        Full desktop system for store operations: inventory, sales, checks, employees, ledger, and web orders.
+                      </p>
+                    </div>
+                    <span class="pill">JavaFX</span>
+                  </div>
+
+                  <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                    <li>• JavaFX (MVC) + MySQL/SQLite for reliable daily workflows</li>
+                    <li>• Multi-storage inventory + ledger tracking, customer/company/check management</li>
+                    <li>• Website integration: imports online orders, validates stock, updates ledger, and confirms pickup/delivery</li>
+                  </ul>
+
+                  <div class="mt-5 flex flex-wrap gap-2">
+                      <a class="btn pointer-events-none opacity-60" href="#" aria-disabled="true">Code (private)</a>
+                    <a class="btn" href="https://github.com/RobertBannoura/Java-Appliance-Store-Managment-Desktop-Application" target="_blank" rel="noreferrer">Github (Screenshots)</a>
+
+                    <!-- TODO: If you want, replace this with your screenshots repo link (Drive/GitHub) -->
+                    <a class="btn" href="https://www.linkedin.com/posts/robert-bannoura_javafx-mysql-softwareengineering-activity-7394448936792608768-BuOJ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEvDADYBEqScrhbhhxCwD-WdFrdIGl_kqYw" target="_blank" rel="noreferrer">Linkedin Post</a>
+                  </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="card" data-reveal style="--d: 120ms">
+                  <div class="thumb">
+                    <!-- Image comes from main.js: setImg("imgInterfacing", interfacingCover) -->
+                    <img id="imgInterfacing" alt="Maze-solving robot preview" loading="lazy" class="thumb-img" />
+                  </div>
+
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 class="text-lg font-semibold text-slate-900">
+                        Autonomous Maze-Solving Robot
+                      </h3>
+                      <p class="mt-2 text-sm text-slate-600">
+                        ESP32-based robot with real-time sensing and control to autonomously navigate and solve mazes.
+                      </p>
+                    </div>
+                    <span class="pill">Robotics</span>
+                  </div>
+
+                  <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                    <li>• Dual motor + encoders with PID speed correction for straight-line accuracy</li>
+                    <li>• MPU6050 yaw tracking for reliable 90° turns and movement calibration</li>
+                    <li>• VL53L0X LiDAR distance sensing + right-hand rule navigation</li>
+                  </ul>
+
+                  <div class="mt-5 flex flex-wrap gap-2">
+                      <a class="btn" href="https://drive.google.com/file/d/17nnnhzDc_jSEJ4UnBn9Ruw2P-6y5l22N/view?usp=sharing" target="_blank" rel="noreferrer">Demo Video</a>
+
+                  </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="card" data-reveal style="--d: 180ms">
+                  <div class="thumb">
+                    <!-- Image comes from main.js: setImg("imgEmbedded", embeddedCover) -->
+                    <img id="imgEmbedded" alt="Smart house IoT preview" loading="lazy" class="thumb-img" />
+                  </div>
+
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 class="text-lg font-semibold text-slate-900">
+                        Smart House / IoT Stage Prototype (Arduino)
+                      </h3>
+                      <p class="mt-2 text-sm text-slate-600">
+                        Sensor-driven mini “smart house” with lighting, motion detection, visitor greeting, and door actuation.
+                      </p>
+                    </div>
+                    <span class="pill">IoT</span>
+                  </div>
+
+                  <ul class="mt-4 space-y-2 text-sm text-slate-700">
+                    <li>• LDR controls stage LED intensity (ambient-responsive lighting)</li>
+                    <li>• PIR detects motion and triggers automation near the door</li>
+                    <li>• Ultrasonic distance sensor + LCD to welcome visitors; motor opens on nearby movement</li>
+                  </ul>
+
+                  <div class="mt-5 flex flex-wrap gap-2">
+                    <a class="btn" href="https://drive.google.com/file/d/1DYlQFMWEj6qO1epkV7Xrc1Dnheql5bSC/view?usp=sharing" target="_blank" rel="noreferrer">Demo Video</a>
+
+                  </div>
+                </article>
+              </div>
+
+              <!-- Mobile “view all” -->
+              <div class="mt-8 md:hidden">
+                <a
+                  class="inline-flex w-full items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  href="https://github.com/RobertBannoura"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View on GitHub →
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS PANEL -->
+      <section id="skills" class="panel">
+        <div class="panel-inner">
+          <div class="mx-auto w-full max-w-6xl px-4">
+            <div data-reveal class="reveal">
+              <h2 class="text-3xl font-bold text-slate-900">Skills</h2>
+
+              <div class="mt-8 grid gap-6 md:grid-cols-3">
+                <div class="box" data-reveal style="--d: 0ms">
+                  <h3 class="text-sm font-semibold text-slate-900">Programming</h3>
+                  <p class="mt-3 text-sm text-slate-700">Python • Java • C/C++ • SQL</p>
+                </div>
+                <div class="box" data-reveal style="--d: 80ms">
+                  <h3 class="text-sm font-semibold text-slate-900">Frameworks</h3>
+                  <p class="mt-3 text-sm text-slate-700">Flask • JavaFX • Flutter</p>
+                </div>
+                <div class="box" data-reveal style="--d: 160ms">
+                  <h3 class="text-sm font-semibold text-slate-900">Databases</h3>
+                  <p class="mt-3 text-sm text-slate-700">MySQL • SQLite</p>
+                </div>
+                <div class="box" data-reveal style="--d: 240ms">
+                  <h3 class="text-sm font-semibold text-slate-900">QA</h3>
+                  <p class="mt-3 text-sm text-slate-700">Test planning • Manual testing • Regression • API testing</p>
+                </div>
+                <div class="box" data-reveal style="--d: 320ms">
+                  <h3 class="text-sm font-semibold text-slate-900">ML</h3>
+                  <p class="mt-3 text-sm text-slate-700">pandas • NumPy • scikit-learn • evaluation metrics</p>
+                </div>
+                <div class="box" data-reveal style="--d: 400ms">
+                  <h3 class="text-sm font-semibold text-slate-900">Embedded</h3>
+                  <p class="mt-3 text-sm text-slate-700">ESP32 • Arduino • sensors • PID/control • interfacing basics</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT PANEL -->
+      <section id="about" class="panel">
+        <div class="panel-inner">
+          <div class="mx-auto w-full max-w-6xl px-4">
+            <div data-reveal class="reveal rounded-3xl border border-slate-200 bg-white/70 p-8 shadow-sm">
+              <h2 class="text-3xl font-bold text-slate-900">About</h2>
+              <p class="mt-4 max-w-3xl leading-relaxed text-slate-700">
+                I like building real systems end-to-end: clean UI, solid databases, and reliable logic. I’m comfortable
+                working close to hardware when needed (ESP32 / microcontrollers).
+              </p>
+              <p class="mt-4 max-w-3xl leading-relaxed text-slate-700">
+                I’m also trained in QA practices (test planning, functional testing, API testing with Postman/Jira),
+                which helps me ship more reliable software.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-2 text-sm text-slate-700">
+                <span class="rounded-full border border-slate-200 bg-white px-3 py-1">Birzeit, Palestine</span>
+                <span class="rounded-full border border-slate-200 bg-white px-3 py-1">Expected grad: Feb 2026</span>
+                <span class="rounded-full border border-slate-200 bg-white px-3 py-1">Open to internships</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT PANEL -->
+      <section id="contact" class="panel">
+        <div class="panel-inner">
+          <div class="mx-auto w-full max-w-6xl px-4">
+            <div data-reveal class="reveal rounded-3xl border border-slate-200 bg-white/70 p-8 shadow-sm">
+              <h2 class="text-3xl font-bold text-slate-900">Contact</h2>
+              <p class="mt-2 text-slate-600">Want to work together? Send me a message.</p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a
+                  class="rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-800"
+                  href="mailto:bannourarobert@gmail.com"
+                >
+                  Email: bannourarobert@gmail.com
+                </a>
+
+                <button
+                  id="copyEmail"
+                  class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  type="button"
+                >
+                  Copy email
+                </button>
+
+                <a
+                  class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  href="https://www.linkedin.com/in/robert-bannoura/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  LinkedIn
+                </a>
+
+                <a
+                  class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-50"
+                  href="https://github.com/RobertBannoura"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  GitHub
+                </a>
+              </div>
+
+              <p class="mt-4 text-sm text-slate-600">Based in Birzeit, Palestine • Available for internships / junior roles.</p>
+            </div>
+
+            <footer class="mt-10 border-t border-slate-200/70 py-8">
+              <div class="flex flex-col gap-2 text-sm text-slate-600 md:flex-row md:items-center md:justify-between">
+                <p>© <span id="year"></span> Robert Bannoura. Built with Vite + Tailwind.</p>
+                <p class="text-slate-500">Clean. Fast. Maintainable.</p>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/js/main.js"></script>
+  </body>
+</html>

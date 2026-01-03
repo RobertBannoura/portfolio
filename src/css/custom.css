@@ -1,0 +1,188 @@
+/* src/css/custom.css */
+
+/* --------------------------
+   Global helpers
+--------------------------- */
+
+:root {
+  --header-h: 84px;
+}
+
+/* Smooth anchors + correct offset under sticky header */
+html { scroll-behavior: smooth; }
+#projects, #skills, #about, #contact {
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+
+/* --------------------------
+   PANELS (FIXED)
+   Default = normal scrolling (no overlap).
+   Optional sticky mode is available via .panel--sticky.
+--------------------------- */
+
+/* Default: normal sections (no sticky, no forced 200vh) */
+.panel {
+  position: relative;
+  padding: 88px 0;           /* bigger “barrier” between sections */
+}
+
+.panel-inner {
+  position: relative;
+  height: auto;
+  display: block;
+}
+
+/* OPTIONAL: enable sticky mode ONLY when you add class="panel panel--sticky" */
+.panel--sticky {
+  min-height: 200vh;
+  padding: 48px 0;
+}
+.panel--sticky .panel-inner {
+  position: sticky;
+  top: var(--header-h);
+  height: calc(100vh - var(--header-h));
+  overflow: auto;            /* prevents overlap even if content is taller */
+  display: flex;
+  align-items: flex-start;
+  padding: 24px 0;
+}
+
+/* Mobile: always normal scroll */
+@media (max-width: 768px) {
+  .panel { padding: 64px 0; }
+  .panel--sticky { min-height: auto; padding: 64px 0; }
+  .panel--sticky .panel-inner {
+    position: static;
+    height: auto;
+    overflow: visible;
+    display: block;
+    padding: 0;
+  }
+}
+
+/* --------------------------
+   Reveal animation
+--------------------------- */
+.reveal,
+.card,
+.box {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  transition-delay: var(--d, 0ms);
+}
+
+.is-visible.reveal,
+.is-visible.card,
+.is-visible.box {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------
+   Cards and helpers
+--------------------------- */
+.card {
+  border: 1px solid rgb(226 232 240 / 1);
+  background: rgb(255 255 255 / 0.70);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgb(15 23 42 / 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  background: rgb(255 255 255 / 0.92);
+  box-shadow: 0 14px 38px rgb(15 23 42 / 0.10);
+}
+
+.box {
+  border: 1px solid rgb(226 232 240 / 1);
+  background: rgb(255 255 255 / 0.70);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgb(15 23 42 / 0.05);
+}
+
+/* --------------------------
+   Project thumbnails (TALLER)
+--------------------------- */
+.thumb {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgb(226 232 240 / 1);
+  background: rgb(248 250 252 / 1);
+  margin-bottom: 16px;
+}
+
+.thumb-img {
+  width: 100%;
+  height: 280px;      /* taller so details show */
+  object-fit: cover;
+  display: block;
+}
+
+/* Slightly smaller on small screens */
+@media (max-width: 768px) {
+  .thumb-img { height: 220px; }
+}
+
+/* --------------------------
+   Pills + buttons
+--------------------------- */
+.pill {
+  border: 1px solid rgb(226 232 240 / 1);
+  background: white;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  color: rgb(51 65 85 / 1);
+  white-space: nowrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(226 232 240 / 1);
+  background: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: rgb(15 23 42 / 1);
+  transition: background 150ms ease;
+  text-decoration: none;
+}
+.btn:hover { background: rgb(248 250 252 / 1); }
+
+/* --------------------------
+   Active nav link style
+--------------------------- */
+.navlink.is-active {
+  color: rgb(15 23 42 / 1) !important;
+  position: relative;
+  font-weight: 600;
+}
+.navlink.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 2px;
+  background: rgb(15 23 42 / 0.85);
+  border-radius: 999px;
+}
+
+/* --------------------------
+   Reduced motion
+--------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .card, .box {
+    transition: none;
+    transform: none;
+    opacity: 1;
+  }
+}
