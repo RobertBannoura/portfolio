@@ -69,6 +69,32 @@ if (copyBtn) {
   });
 }
 
+// ---- Active nav highlight ----
+const sections = ["projects", "skills", "about", "contact"]
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
+
+const navLinks = Array.from(document.querySelectorAll(".navlink[href^='#']"));
+
+function setActiveNav(id) {
+  navLinks.forEach((l) =>
+    l.classList.toggle("is-active", l.getAttribute("href") === `#${id}`)
+  );
+}
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    const visible = entries
+      .filter((e) => e.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+    if (visible?.target?.id) setActiveNav(visible.target.id);
+  },
+  { threshold: [0.2, 0.35, 0.5] }
+);
+
+sections.forEach((s) => sectionObserver.observe(s));
+
 // ---- Progress bar (RAF for smoothness) ----
 const progress = document.getElementById("progress");
 let ticking = false;
@@ -83,8 +109,8 @@ function updateProgress() {
   const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
   progress.style.width = `${pct}%`;
 
-  // Optional: if very top, clear active state (or set to home if you add it)
-  if (scrollTop < 40) setActiveNav("home");
+  // If you're at the top, don't force an active section (prevents runtime errors)
+  if (scrollTop < 40) return;
 }
 
 window.addEventListener(
@@ -111,29 +137,3 @@ const io = new IntersectionObserver(
   { threshold: 0.12 }
 );
 revealEls.forEach((el) => io.observe(el));
-
-// ---- Active nav highlight ----
-const sections = ["projects", "skills", "about", "contact"]
-  .map((id) => document.getElementById(id))
-  .filter(Boolean);
-
-const navLinks = Array.from(document.querySelectorAll(".navlink[href^='#']"));
-
-function setActiveNav(id) {
-  navLinks.forEach((l) =>
-    l.classList.toggle("is-active", l.getAttribute("href") === `#${id}`)
-  );
-}
-
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    const visible = entries
-      .filter((e) => e.isIntersecting)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-    if (visible?.target?.id) setActiveNav(visible.target.id);
-  },
-  { threshold: [0.2, 0.35, 0.5] }
-);
-
-sections.forEach((s) => sectionObserver.observe(s));
