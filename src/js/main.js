@@ -25,22 +25,21 @@ if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 const menuBtn = document.getElementById("menuBtn");
 const mobileMenu = document.getElementById("mobileMenu");
 
+function closeMobileMenu() {
+  if (!menuBtn || !mobileMenu) return;
+  mobileMenu.classList.add("hidden");
+  menuBtn.setAttribute("aria-expanded", "false");
+}
+
 if (menuBtn && mobileMenu) {
   menuBtn.addEventListener("click", () => {
     const isOpen = !mobileMenu.classList.contains("hidden");
     mobileMenu.classList.toggle("hidden", isOpen);
     menuBtn.setAttribute("aria-expanded", String(!isOpen));
   });
-
-  mobileMenu.querySelectorAll("a[href^='#']").forEach((a) => {
-    a.addEventListener("click", () => {
-      mobileMenu.classList.add("hidden");
-      menuBtn.setAttribute("aria-expanded", "false");
-    });
-  });
 }
 
-// ---- Smooth scroll ----
+// ---- Smooth scroll (and close mobile menu) ----
 document.querySelectorAll("a[href^='#']").forEach((a) => {
   a.addEventListener("click", (e) => {
     const href = a.getAttribute("href");
@@ -50,6 +49,7 @@ document.querySelectorAll("a[href^='#']").forEach((a) => {
     if (!target) return;
 
     e.preventDefault();
+    closeMobileMenu();
     target.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 });
@@ -69,17 +69,33 @@ if (copyBtn) {
   });
 }
 
-// ---- Progress bar ----
+// ---- Progress bar (RAF for smoothness) ----
 const progress = document.getElementById("progress");
+let ticking = false;
+
 function updateProgress() {
+  ticking = false;
   if (!progress) return;
+
   const doc = document.documentElement;
   const scrollTop = doc.scrollTop || document.body.scrollTop;
   const scrollHeight = doc.scrollHeight - doc.clientHeight;
   const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
   progress.style.width = `${pct}%`;
+
+  // Optional: if very top, clear active state (or set to home if you add it)
+  if (scrollTop < 40) setActiveNav("home");
 }
-window.addEventListener("scroll", updateProgress, { passive: true });
+
+window.addEventListener(
+  "scroll",
+  () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(updateProgress);
+  },
+  { passive: true }
+);
 updateProgress();
 
 // ---- Reveal animation ----
@@ -114,6 +130,7 @@ const sectionObserver = new IntersectionObserver(
     const visible = entries
       .filter((e) => e.isIntersecting)
       .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
     if (visible?.target?.id) setActiveNav(visible.target.id);
   },
   { threshold: [0.2, 0.35, 0.5] }
